@@ -23,7 +23,12 @@ export default {
   },
   methods: {
     analyzeContent(content) {
+      var startTime = new Date();
       this.score = this.analyzeReadibility(content);
+      
+      var endTime = new Date();
+
+            console.log("Readability: " + ((endTime - startTime) / 1000) + " seconds");
       this.$emit("save", this.score);
     },
     analyzeReadibility(text) {
