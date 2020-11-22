@@ -123,7 +123,11 @@ export default {
       this.loaded = true;
       for (let i = 0, suggestion; (suggestion = this.itemsFromConfig[i]); i++) {
         try {
+          var startTime = new Date();
           await suggestion.method(content);
+         
+          var endTime = new Date();
+          console.log("Suggestions: " + ((endTime - startTime) / 1000) + " seconds");
         } catch (err) {
           this.$eventBus.$emit("error", err);
         }
