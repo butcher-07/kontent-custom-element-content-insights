@@ -27,7 +27,11 @@ export default {
   },
   methods: {
     analyzeContent(content) {
+      var startTime = new Date();
       let rt = this.countReadingTime(content);
+      var endTime = new Date();
+
+            console.log("Reading time: " + ((endTime - startTime) / 1000) + " seconds");
       this.readingTime = {
         time: rt.text,
         words: rt.words
