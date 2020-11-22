@@ -30,7 +30,11 @@ export default {
   },
   methods: {
     analyzeContent(content) {
+      var startTime = new Date();
       this.keywords = this.extractPhrases(content).map(x => x.toLowerCase());
+         
+          var endTime = new Date();
+          console.log("Keywords: " + ((endTime - startTime) / 1000) + " seconds");
       this.$emit("save", this.keywords);
     },
     extractPhrases(text) {
