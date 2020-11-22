@@ -42,7 +42,11 @@ export default {
   },
   methods: {
     analyzeContent(content) {
+      var startTime = new Date();
       this.sentiment = this.extractSentiment(content);
+      var endTime = new Date();
+
+            console.log("Sentiment: " + ((endTime - startTime) / 1000) + " seconds");
       this.$emit("save", this.sentiment);
     },
     extractSentiment(text) {
